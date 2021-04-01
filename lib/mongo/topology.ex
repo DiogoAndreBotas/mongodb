@@ -2,7 +2,6 @@ defmodule Mongo.Topology do
   @moduledoc false
 
   use GenServer
-  require Logger
 
   alias Mongo.Events.{
     ServerDescriptionChangedEvent,
@@ -29,7 +28,7 @@ defmodule Mongo.Topology do
       |> Keyword.take([:debug, :name, :timeout, :spawn_opt, :appName])
       |> Keyword.merge(gen_server_opts)
 
-    Logger.info(inspect(gen_server_opts))
+    IO.puts(inspect(gen_server_opts))
 
     GenServer.start_link(__MODULE__, opts, gen_server_opts)
   end
