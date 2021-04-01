@@ -25,7 +25,7 @@ defmodule Mongo.Topology do
   def start_link(opts, gen_server_opts \\ []) do
     gen_server_opts =
       opts
-      |> Keyword.take([:debug, :name, :timeout, :spawn_opt])
+      |> Keyword.take([:debug, :name, :timeout, :spawn_opt, :appName])
       |> Keyword.merge(gen_server_opts)
 
     GenServer.start_link(__MODULE__, opts, gen_server_opts)
