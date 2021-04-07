@@ -134,6 +134,8 @@ defmodule Mongo do
   """
   @spec start_link(Keyword.t()) :: {:ok, pid} | {:error, Mongo.Error.t() | atom}
   def start_link(opts) do
+    IO.puts("STARTING DB CONNECTION")
+
     opts
     |> UrlParser.parse_url()
     |> Mongo.ConfigHide.mask_password()
